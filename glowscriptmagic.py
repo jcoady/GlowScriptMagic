@@ -1,6 +1,7 @@
 from IPython.display import display, display_html, display_javascript
 from IPython.display import Javascript
 from IPython.display import HTML
+import json
 
 def glowscript(line, cell):
     lst = line.lower().split()
@@ -9,14 +10,11 @@ def glowscript(line, cell):
         lang = lst[-1] if len(lst) > 0 else ''
         display(Javascript("""
         require(['http://www.glowscript.org/lib/jquery/1.1/jquery-ui.custom.min.js','http://www.glowscript.org/package/compiler.1.1.min.js','http://www.glowscript.org/package/symbols.1.1.min.js','http://www.glowscript.org/package/RSrun.1.1.min.js','http://www.glowscript.org/package/RScompiler.1.1.min.js','http://www.glowscript.org/package/glow.1.1.min.js'], function() {
-        var cell_content = '"""+cell.replace("\n","\\n")+"""';
-        console.log(cell_content);
+        var cell_content = """+json.dumps(cell)+""";
         var embedScript = window.glowscript_compile(cell_content, {lang:'"""+lang+"""'}); 
         embedScript = "require(['http://www.glowscript.org/lib/jquery/1.1/jquery-ui.custom.min.js','http://www.glowscript.org/package/glow.1.1.min.js'], function() {" + embedScript + ";$(function(){ window.__context = { glowscript_container: $('#glowscript').removeAttr('id') }; main() });})";
         embedScript = embedScript.replace("</", "<\\/"); // escape anything that could be a close script tag... hopefully this sequence only occurs in strings!
-        console.log(embedScript);
         eval(embedScript);
-
         })
         """ ))
         
