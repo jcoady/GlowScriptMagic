@@ -9,10 +9,10 @@ def glowscript(line, cell):
         display(HTML("""<div id="glowscript" class="glowscript"></div>"""))
         lang = lst[-1] if len(lst) > 0 else ''
         display(Javascript("""
-        require(['https://rawgithub.com/BruceSherwood/glowscript/master/lib/jquery/jquery-ui.custom.min.js','https://rawgithub.com/BruceSherwood/glowscript/master/package/compiler.1.1.min.js','https://rawgithub.com/BruceSherwood/glowscript/master/package/symbols.1.1.min.js','https://rawgithub.com/BruceSherwood/glowscript/master/package/RSrun.1.1.min.js','https://rawgithub.com/BruceSherwood/glowscript/master/package/RScompiler.1.1.min.js','https://rawgithub.com/BruceSherwood/glowscript/master/package/glow.1.1.min.js'], function() {
+        require(['https://dl.dropboxusercontent.com/u/5095342/glowscript/lib/jquery/1.1/jquery-ui.custom.min.js','https://dl.dropboxusercontent.com/u/5095342/glowscript/package/compiler.1.1.min.js','https://dl.dropboxusercontent.com/u/5095342/glowscript/package/symbols.1.1.min.js','https://dl.dropboxusercontent.com/u/5095342/glowscript/package/RSrun.1.1.min.js','https://dl.dropboxusercontent.com/u/5095342/glowscript/package/RScompiler.1.1.min.js','https://dl.dropboxusercontent.com/u/5095342/glowscript/package/glow.1.1.min.js'], function() {
         var cell_content = """+json.dumps(cell)+""";
         var embedScript = window.glowscript_compile(cell_content, {lang:'"""+lang+"""'}); 
-        embedScript = "require(['https://rawgithub.com/BruceSherwood/glowscript/master/lib/jquery/jquery-ui.custom.min.js','https://rawgithub.com/BruceSherwood/glowscript/master/package/glow.1.1.min.js'], function() {" + embedScript + ";$(function(){ window.__context = { glowscript_container: $('#glowscript').removeAttr('id') }; main() });})";
+        embedScript = "require(['https://dl.dropboxusercontent.com/u/5095342/glowscript/lib/jquery/1.1/jquery-ui.custom.min.js','https://dl.dropboxusercontent.com/u/5095342/glowscript/package/glow.1.1.min.js'], function() {" + embedScript + ";$(function(){ window.__context = { glowscript_container: $('#glowscript').removeAttr('id') }; main() });})";
         embedScript = embedScript.replace("</", "<\\/"); // escape anything that could be a close script tag... hopefully this sequence only occurs in strings!
         eval(embedScript);
         })
