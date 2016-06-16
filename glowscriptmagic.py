@@ -8,26 +8,26 @@ def glowscript(line, cell):
         lang = lst[-1] if len(lst) > 0 else ''
         display(Javascript("""
         if (window.location.protocol === 'https:') {
-            require(['https://cdnjs.cloudflare.com/ajax/libs/acorn/3.2.0/acorn.js','https://dl.dropboxusercontent.com/u/5095342/glowscript/lib/jquery/1.1/jquery-ui.custom.min.js','https://dl.dropboxusercontent.com/u/5095342/glowscript/package/compiler.1.1.min.js','https://dl.dropboxusercontent.com/u/5095342/glowscript/package/symbols.1.1.min.js','https://dl.dropboxusercontent.com/u/5095342/glowscript/package/RSrun.1.1.min.js','https://dl.dropboxusercontent.com/u/5095342/glowscript/package/RScompiler.1.1.min.js','https://dl.dropboxusercontent.com/u/5095342/glowscript/package/glow.1.1.min.js'], function() {
+            require(['https://cdnjs.cloudflare.com/ajax/libs/acorn/3.2.0/acorn.js','https://dl.dropboxusercontent.com/u/5095342/glowscript/lib/jquery/2.1/jquery-ui.custom.min.js','https://dl.dropboxusercontent.com/u/5095342/glowscript/package/compiler.2.1.min.js','https://dl.dropboxusercontent.com/u/5095342/glowscript/package/symbols.2.1.min.js','https://dl.dropboxusercontent.com/u/5095342/glowscript/package/RSrun.2.1.min.js','https://dl.dropboxusercontent.com/u/5095342/glowscript/package/RScompiler.2.1.min.js','https://dl.dropboxusercontent.com/u/5095342/glowscript/package/glow.2.1.min.js'], function() {
             var cell_content = """+json.dumps(cell)+""";
             var embedScript = window.glowscript_compile(cell_content, {lang:'"""+lang+"""'}); 
-            embedScript = "require(['https://dl.dropboxusercontent.com/u/5095342/glowscript/lib/jquery/1.1/jquery-ui.custom.min.js','https://dl.dropboxusercontent.com/u/5095342/glowscript/package/glow.1.1.min.js'], function() {" + embedScript + ";$(function(){ window.__context = { glowscript_container: $('#glowscript').removeAttr('id') }; main() });})";
+            embedScript = "require(['https://dl.dropboxusercontent.com/u/5095342/glowscript/lib/jquery/2.1/jquery-ui.custom.min.js','https://dl.dropboxusercontent.com/u/5095342/glowscript/package/glow.2.1.min.js'], function() {" + embedScript + ";$(function(){ window.__context = { glowscript_container: $('#glowscript').removeAttr('id') }; main() });})";
             embedScript = embedScript.replace("</", "<\\/"); // escape anything that could be a close script tag... hopefully this sequence only occurs in strings!
             eval(embedScript);
             })
         } else if (window.location.host === 'nbviewer.ipython.org') {
-            require(['http://cdnjs.cloudflare.com/ajax/libs/acorn/3.2.0/acorn.js','http://www.glowscript.org/lib/jquery/1.1/jquery.min.js','http://www.glowscript.org/lib/jquery/1.1/jquery-ui.custom.min.js','http://www.glowscript.org/package/compiler.1.1.min.js','http://www.glowscript.org/package/symbols.1.1.min.js','http://www.glowscript.org/package/RSrun.1.1.min.js','http://www.glowscript.org/package/RScompiler.1.1.min.js','http://www.glowscript.org/package/glow.1.1.min.js'], function() {
+            require(['http://cdnjs.cloudflare.com/ajax/libs/acorn/3.2.0/acorn.js','http://www.glowscript.org/lib/jquery/2.1/jquery.min.js','http://www.glowscript.org/lib/jquery/2.1/jquery-ui.custom.min.js','http://www.glowscript.org/package/compiler.2.1.min.js','http://www.glowscript.org/package/symbols.2.1.min.js','http://www.glowscript.org/package/RSrun.2.1.min.js','http://www.glowscript.org/package/RScompiler.2.1.min.js','http://www.glowscript.org/package/glow.2.1.min.js'], function() {
             var cell_content = """+json.dumps(cell)+""";
             var embedScript = window.glowscript_compile(cell_content, {lang:'"""+lang+"""'}); 
-            embedScript = "require(['http://www.glowscript.org/lib/jquery/1.1/jquery-ui.custom.min.js','http://www.glowscript.org/package/glow.1.1.min.js'], function() {" + embedScript + ";$(function(){ window.__context = { glowscript_container: $('#glowscript').removeAttr('id') }; main() });})";
+            embedScript = "require(['http://www.glowscript.org/lib/jquery/2.1/jquery-ui.custom.min.js','http://www.glowscript.org/package/glow.2.1.min.js'], function() {" + embedScript + ";$(function(){ window.__context = { glowscript_container: $('#glowscript').removeAttr('id') }; main() });})";
             embedScript = embedScript.replace("</", "<\\/"); // escape anything that could be a close script tag... hopefully this sequence only occurs in strings!
             eval(embedScript);
             })
         } else {
-            require(['http://cdnjs.cloudflare.com/ajax/libs/acorn/3.2.0/acorn.js','http://www.glowscript.org/lib/jquery/1.1/jquery-ui.custom.min.js','http://www.glowscript.org/package/compiler.1.1.min.js','http://www.glowscript.org/package/symbols.1.1.min.js','http://www.glowscript.org/package/RSrun.1.1.min.js','http://www.glowscript.org/package/RScompiler.1.1.min.js','http://www.glowscript.org/package/glow.1.1.min.js'], function() {
+            require(['http://cdnjs.cloudflare.com/ajax/libs/acorn/3.2.0/acorn.js','http://www.glowscript.org/lib/jquery/2.1/jquery-ui.custom.min.js','http://www.glowscript.org/package/compiler.2.1.min.js','http://www.glowscript.org/package/symbols.2.1.min.js','http://www.glowscript.org/package/RSrun.2.1.min.js','http://www.glowscript.org/package/RScompiler.2.1.min.js','http://www.glowscript.org/package/glow.2.1.min.js'], function() {
             var cell_content = """+json.dumps(cell)+""";
             var embedScript = window.glowscript_compile(cell_content, {lang:'"""+lang+"""'}); 
-            embedScript = "require(['http://www.glowscript.org/lib/jquery/1.1/jquery-ui.custom.min.js','http://www.glowscript.org/package/glow.1.1.min.js'], function() {" + embedScript + ";$(function(){ window.__context = { glowscript_container: $('#glowscript').removeAttr('id') }; main() });})";
+            embedScript = "require(['http://www.glowscript.org/lib/jquery/2.1/jquery-ui.custom.min.js','http://www.glowscript.org/package/glow.2.1.min.js'], function() {" + embedScript + ";$(function(){ window.__context = { glowscript_container: $('#glowscript').removeAttr('id') }; main() });})";
             embedScript = embedScript.replace("</", "<\\/"); // escape anything that could be a close script tag... hopefully this sequence only occurs in strings!
             eval(embedScript);
             })
