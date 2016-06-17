@@ -9,7 +9,7 @@ def glowscript(line, cell):
         display(Javascript("""
         'use strict';
         if (window.location.protocol === 'https:') {
-            require(['https://dl.dropboxusercontent.com/u/5095342/glowscript/lib/jquery/2.1/jquery-ui.custom.min.js','https://dl.dropboxusercontent.com/u/5095342/glowscript/package/compiler.2.1.min.js','https://dl.dropboxusercontent.com/u/5095342/glowscript/package/symbols.2.1.min.js','https://dl.dropboxusercontent.com/u/5095342/glowscript/package/RSrun.2.1.min.js','https://dl.dropboxusercontent.com/u/5095342/glowscript/package/RScompiler.2.1.min.js','https://dl.dropboxusercontent.com/u/5095342/glowscript/package/glow.2.1.min.js'], function() {
+            require(['https://dl.dropboxusercontent.com/u/5095342/glowscript/lib/jquery/2.1/jquery-ui.custom.min.js','https://cdn.rawgit.com/BruceSherwood/glowscript/master/package/compiler.2.1.min.js','https://dl.dropboxusercontent.com/u/5095342/glowscript/package/symbols.2.1.min.js','https://dl.dropboxusercontent.com/u/5095342/glowscript/package/RSrun.2.1.min.js','http://cdn.rawgit.com/BruceSherwood/glowscript/master/package/RScompiler.2.1.min.js','https://cdn.rawgit.com/BruceSherwood/glowscript/master/package/glow.2.1.min.js'], function() {
             var cell_content = """+json.dumps(cell)+""";
             var embedScript = window.glowscript_compile(cell_content, {lang:'"""+lang+"""'}); 
             embedScript = "require(['https://dl.dropboxusercontent.com/u/5095342/glowscript/lib/jquery/2.1/jquery-ui.custom.min.js','https://dl.dropboxusercontent.com/u/5095342/glowscript/package/glow.2.1.min.js'], function() {" + embedScript + ";$(function(){ window.__context = { glowscript_container: $('#glowscript').removeAttr('id') }; main() });})";
@@ -17,7 +17,7 @@ def glowscript(line, cell):
             eval(embedScript);
             })
         } else if (window.location.host === 'nbviewer.ipython.org') {
-            require(['http://www.glowscript.org/lib/jquery/2.1/jquery.min.js','http://www.glowscript.org/lib/jquery/2.1/jquery-ui.custom.min.js','http://www.glowscript.org/package/compiler.2.1.min.js','http://www.glowscript.org/package/symbols.2.1.min.js','http://www.glowscript.org/package/RSrun.2.1.min.js','http://cdn.rawgit.com/BruceSherwood/glowscript/master/package/RScompiler.2.1.min.js','http://www.glowscript.org/package/glow.2.1.min.js'], function() {
+            require(['http://www.glowscript.org/lib/jquery/2.1/jquery.min.js','http://www.glowscript.org/lib/jquery/2.1/jquery-ui.custom.min.js','https://cdn.rawgit.com/BruceSherwood/glowscript/master/package/compiler.2.1.min.js','http://www.glowscript.org/package/symbols.2.1.min.js','http://www.glowscript.org/package/RSrun.2.1.min.js','http://cdn.rawgit.com/BruceSherwood/glowscript/master/package/RScompiler.2.1.min.js','http://cdn.rawgit.com/BruceSherwood/glowscript/master/package/glow.2.1.min.js'], function() {
             var cell_content = """+json.dumps(cell)+""";
             var embedScript = window.glowscript_compile(cell_content, {lang:'"""+lang+"""'}); 
             embedScript = "require(['http://www.glowscript.org/lib/jquery/2.1/jquery-ui.custom.min.js','http://www.glowscript.org/package/glow.2.1.min.js'], function() {" + embedScript + ";$(function(){ window.__context = { glowscript_container: $('#glowscript').removeAttr('id') }; main() });})";
@@ -25,7 +25,7 @@ def glowscript(line, cell):
             eval(embedScript);
             })
         } else {
-            require(['http://www.glowscript.org/lib/jquery/2.1/jquery-ui.custom.min.js','http://www.glowscript.org/package/compiler.2.1.min.js','http://www.glowscript.org/package/symbols.2.1.min.js','http://www.glowscript.org/package/RSrun.2.1.min.js','https://cdn.rawgit.com/BruceSherwood/glowscript/master/package/RScompiler.2.1.min.js','http://www.glowscript.org/package/glow.2.1.min.js'], function() {
+            require(['http://www.glowscript.org/lib/jquery/2.1/jquery-ui.custom.min.js','https://cdn.rawgit.com/BruceSherwood/glowscript/master/package/compiler.2.1.min.js','http://www.glowscript.org/package/symbols.2.1.min.js','http://www.glowscript.org/package/RSrun.2.1.min.js','http://cdn.rawgit.com/BruceSherwood/glowscript/master/package/RScompiler.2.1.min.js','http://cdn.rawgit.com/BruceSherwood/glowscript/master/package/glow.2.1.min.js'], function() {
             var cell_content = """+json.dumps(cell)+""";
             var embedScript = window.glowscript_compile(cell_content, {lang:'"""+lang+"""'}); 
             embedScript = "require(['http://www.glowscript.org/lib/jquery/2.1/jquery-ui.custom.min.js','http://www.glowscript.org/package/glow.2.1.min.js'], function() {" + embedScript + ";$(function(){ window.__context = { glowscript_container: $('#glowscript').removeAttr('id') }; main() });})";
