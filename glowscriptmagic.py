@@ -25,7 +25,6 @@ def glowscript(line, cell):
             eval(embedScript);
             })
         } else {
-            //import * as acorn from 'http://cdnjs.cloudflare.com/ajax/libs/acorn/3.2.0/acorn.js';
             require(['http://cdnjs.cloudflare.com/ajax/libs/acorn/3.2.0/acorn.js','http://www.glowscript.org/lib/jquery/2.1/jquery-ui.custom.min.js','http://www.glowscript.org/package/compiler.2.1.min.js','http://www.glowscript.org/package/symbols.2.1.min.js','http://www.glowscript.org/package/RSrun.2.1.min.js','http://www.glowscript.org/package/RScompiler.2.1.min.js','http://www.glowscript.org/package/glow.2.1.min.js'], function(acorn) {
             var cell_content = """+json.dumps(cell)+""";
             var embedScript = window.glowscript_compile(cell_content, {lang:'"""+lang+"""'}); 
