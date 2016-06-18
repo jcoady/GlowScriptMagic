@@ -16,7 +16,7 @@ def glowscript(line, cell):
             embedScript = "require(['https://dl.dropboxusercontent.com/u/5095342/glowscript/lib/jquery/2.1/jquery-ui.custom.min.js','https://dl.dropboxusercontent.com/u/5095342/glowscript/package/glow.2.1.min.js'], function() {" + embedScript + ";$(function(){ window.__context = { glowscript_container: $('#glowscript').removeAttr('id') }; main() });})";
             embedScript = embedScript.replace("</", "<\\/"); // escape anything that could be a close script tag... hopefully this sequence only occurs in strings!
             eval(embedScript);
-            console.log(embedScript);
+            //console.log(embedScript);
             })
         } else if (window.location.host === 'nbviewer.ipython.org') {
             require(['http://cdnjs.cloudflare.com/ajax/libs/acorn/3.2.0/acorn.min.js','http://www.glowscript.org/lib/jquery/2.1/jquery.min.js','http://www.glowscript.org/lib/jquery/2.1/jquery-ui.custom.min.js','http://www.glowscript.org/package/compiler.2.1.min.js','http://www.glowscript.org/package/symbols.2.1.min.js','http://www.glowscript.org/package/RSrun.2.1.min.js','http://www.glowscript.org/package/RScompiler.2.1.min.js','http://www.glowscript.org/package/glow.2.1.min.js'], function(acorn) {
@@ -26,7 +26,7 @@ def glowscript(line, cell):
             embedScript = "require(['http://www.glowscript.org/lib/jquery/2.1/jquery-ui.custom.min.js','http://www.glowscript.org/package/glow.2.1.min.js'], function() {" + embedScript + ";$(function(){ window.__context = { glowscript_container: $('#glowscript').removeAttr('id') }; main() });})";
             embedScript = embedScript.replace("</", "<\\/"); // escape anything that could be a close script tag... hopefully this sequence only occurs in strings!
             eval(embedScript);
-            console.log(embedScript);
+            //console.log(embedScript);
             })
         } else {
             require(['http://cdnjs.cloudflare.com/ajax/libs/acorn/3.2.0/acorn.min.js','http://www.glowscript.org/lib/jquery/2.1/jquery-ui.custom.min.js','http://www.glowscript.org/package/compiler.2.1.min.js','http://www.glowscript.org/package/symbols.2.1.min.js','http://www.glowscript.org/package/RSrun.2.1.min.js','http://www.glowscript.org/package/RScompiler.2.1.min.js','http://www.glowscript.org/package/glow.2.1.min.js'], function(acorn) {
@@ -36,7 +36,7 @@ def glowscript(line, cell):
             embedScript = "require(['http://www.glowscript.org/lib/jquery/2.1/jquery-ui.custom.min.js','http://www.glowscript.org/package/glow.2.1.min.js'], function() {" + embedScript + ";$(function(){ window.__context = { glowscript_container: $('#glowscript').removeAttr('id') }; main() });})";
             embedScript = embedScript.replace("</", "<\\/"); // escape anything that could be a close script tag... hopefully this sequence only occurs in strings!
             eval(embedScript);
-            console.log(embedScript);
+            //console.log(embedScript);
             })
         }
         """ ))
